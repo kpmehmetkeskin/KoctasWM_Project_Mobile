@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9F9D7E6F-ACA8-4264-BC34-9CBB27EC575C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -632,6 +632,7 @@
     </Compile>
     <Compile Include="TaskBarHelper.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="VMLogger.cs" />
     <Compile Include="Web References\WS_Islem\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

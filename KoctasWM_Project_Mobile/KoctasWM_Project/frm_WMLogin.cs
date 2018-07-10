@@ -13,6 +13,8 @@ namespace KoctasWM_Project
 {
     public partial class frm_WMLogin : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_WMLogin).Name);
+        
         public frm_WMLogin()
         {
             InitializeComponent();
@@ -217,6 +219,8 @@ namespace KoctasWM_Project
 
         private void frm_WMLogin_Load(object sender, EventArgs e)
         {
+            logger.info("frm_WMLogin_Load begin");
+
             this.WindowState = FormWindowState.Maximized;
             cmbSunucu.Text = GlobalData.sunucuTip;
 
@@ -231,6 +235,8 @@ namespace KoctasWM_Project
             //Version bilgisi çekiliyor
             lbl_Version.Text = Utility.GetCurrentApplicationDate()+" - V. " + Utility.GetCurrentApplicationVersion();
             lbl_BaglantiBilgisi.Text = " sisteme bağlanıyorsunuz...";
+
+            logger.info("frm_WMLogin_Load end");
         }
 
         private void btn_Giris_Click(object sender, EventArgs e)
