@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim).Name);
         public frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim()
         {
             InitializeComponent();
@@ -111,6 +112,7 @@ namespace KoctasWM_Project
 
         private void txtDepoAdresi_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtDepoAdresi_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtDepoAdresi.Text.ToString().Trim() == "")
@@ -184,12 +186,15 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtDepoAdresi_KeyDown " + ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtDepoAdresi_KeyDown end");
         }
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
@@ -225,6 +230,7 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -268,12 +274,14 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtMalzemeNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
@@ -285,7 +293,7 @@ namespace KoctasWM_Project
                 return;
             }*/
 
-            
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_btn_Kaydet_Click begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -418,11 +426,13 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtMiktar);
+                logger.error("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_btn_Kaydet_Click end");
         }
 
         private void txtMiktar_KeyDown(object sender, KeyEventArgs e)

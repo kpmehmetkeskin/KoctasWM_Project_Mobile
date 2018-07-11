@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma).Name);
         public frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace KoctasWM_Project
 
         private void frm_19_Toplama_Ikmal_Siparisleri_Onaylama_Load(object sender, EventArgs e)
         {
+            logger.info("frm_19_Toplama_Ikmal_Siparisleri_Onaylama_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -66,6 +68,8 @@ namespace KoctasWM_Project
 
             }
 
+            logger.info("frm_19_Toplama_Ikmal_Siparisleri_Onaylama_Load end");
+
         }
 
         private void txtDagitimMiktari_GotFocus(object sender, EventArgs e)
@@ -88,6 +92,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_19_Toplama_Ikmal_Siparisleri_Onaylama_btn_Kaydet_Click begin");
             if (!(miktar > 0))
             {
                 return;
@@ -176,11 +181,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_19_Toplama_Ikmal_Siparisleri_Onaylama_btn_Kaydet_Click " +ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_19_Toplama_Ikmal_Siparisleri_Onaylama_btn_Kaydet_Click end");
         }
 
         private void txtDagitimMiktari_KeyDown(object sender, KeyEventArgs e)

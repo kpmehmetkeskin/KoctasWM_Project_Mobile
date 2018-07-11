@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_18_Toplama_Manual_Nakil_Sip_Onaylama : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_18_Toplama_Manual_Nakil_Sip_Onaylama).Name);
         public frm_18_Toplama_Manual_Nakil_Sip_Onaylama()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace KoctasWM_Project
 
         private void btn_Geri_Click(object sender, EventArgs e)
         {
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Geri_Click begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -38,6 +40,7 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "HATA");
+                logger.error("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Geri_Click "+ex.Message);
             }
             finally
             {
@@ -45,10 +48,12 @@ namespace KoctasWM_Project
             }
             this.DialogResult = DialogResult.Abort;
             this.Close();
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Geri_Click end");
         }
 
         private void frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Load(object sender, EventArgs e)
         {
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -84,7 +89,7 @@ namespace KoctasWM_Project
                 Utility.selectText(txtHedefPaletNo);
             }
 
-            
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Load end");
         }
 
 
@@ -131,6 +136,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Kaydet_Click begin");
             bool devam = true;
 
             try
@@ -241,11 +247,13 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtHedefPaletNo);
+                logger.error("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Kaydet_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_btn_Kaydet_Click end");
         }
 
         private void txtHedefMalzemeNo_GotFocus(object sender, EventArgs e)

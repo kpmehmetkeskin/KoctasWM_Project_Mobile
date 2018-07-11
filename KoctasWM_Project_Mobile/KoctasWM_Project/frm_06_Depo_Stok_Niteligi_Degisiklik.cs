@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_06_Depo_Stok_Niteligi_Degisiklik : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_06_Depo_Stok_Niteligi_Degisiklik).Name);
         public frm_06_Depo_Stok_Niteligi_Degisiklik()
         {
             InitializeComponent();
@@ -36,11 +37,12 @@ namespace KoctasWM_Project
 
         private void frm_06_Depo_Stok_Niteligi_Degisiklik_Load(object sender, EventArgs e)
         {
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
-
             formAcilisDuzenle();
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_Load end");
         }
 
         private void txtPaletNo_GotFocus(object sender, EventArgs e)
@@ -55,6 +57,7 @@ namespace KoctasWM_Project
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletNo.Text.ToString().Trim() == "")
@@ -123,16 +126,19 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_06_Depo_Stok_Niteligi_Degisiklik_txtMalzemeNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_btn_Kaydet_Click begin");
             if (txtPaletNo.Text.ToString().Trim() == "")
             {
                 return;
@@ -186,11 +192,13 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtPaletNo);
+                logger.error("frm_06_Depo_Stok_Niteligi_Degisiklik_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_06_Depo_Stok_Niteligi_Degisiklik_btn_Kaydet_Click end");
         }
     }
 }

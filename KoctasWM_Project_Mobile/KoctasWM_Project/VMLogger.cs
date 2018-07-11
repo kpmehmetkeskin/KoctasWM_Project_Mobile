@@ -8,7 +8,7 @@ namespace KoctasWM_Project
 {
     class VMLogger
     {
-        private const String logFileName = "KoctasWM.log";
+        private const String logFileName = "KoctasWM.txt";
         private String className;
         public VMLogger(String className)
         {

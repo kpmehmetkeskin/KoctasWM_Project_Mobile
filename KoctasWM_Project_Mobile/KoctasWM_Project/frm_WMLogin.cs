@@ -241,7 +241,7 @@ namespace KoctasWM_Project
 
         private void btn_Giris_Click(object sender, EventArgs e)
         {
-
+            logger.info("frm_WMLogin_btn_Giris_Click begin");
             Boolean login = false;
 
             if (txtKullaniciAdi.Text.Trim() == "")
@@ -307,6 +307,7 @@ namespace KoctasWM_Project
                     MessageBox.Show(ex.Message, "HATA!", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
                 }
                 login = false;
+                logger.error("frm_WMLogin_btn_Giris_Click " + ex.Message);
             }
             finally
             {
@@ -344,10 +345,10 @@ namespace KoctasWM_Project
                 Cursor.Current = Cursors.Default;
             }
 
-            
-            
-            
 
+
+
+            logger.info("frm_WMLogin_btn_Giris_Click end");
             
         }
 

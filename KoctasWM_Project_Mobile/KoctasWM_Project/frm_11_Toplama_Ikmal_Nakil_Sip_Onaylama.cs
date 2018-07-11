@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama).Name);
         public frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace KoctasWM_Project
 
         private void frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_Load(object sender, EventArgs e)
         {
+            logger.info("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -93,13 +95,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                this.Close();
+                logger.error("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_Load "+ ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-
+            logger.info("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_Load end");
             
         }
 
@@ -149,7 +151,7 @@ namespace KoctasWM_Project
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
 
-
+            logger.info("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_btn_Kaydet_Click begin");
 
             if (txtHedefAdres2.Text.Trim() == "")
             {
@@ -221,11 +223,13 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtHedefPaletNo);
+                logger.error("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_btn_Kaydet_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama_btn_Kaydet_Click end");
         }
 
         

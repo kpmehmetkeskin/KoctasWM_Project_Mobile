@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim).Name);
         public frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace KoctasWM_Project
 
         private void frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_Load(object sender, EventArgs e)
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
 
@@ -141,11 +143,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_Load " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_Load end");
         }
 
 
@@ -173,6 +177,7 @@ namespace KoctasWM_Project
 
         private void paletTamamla()
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletTamamla begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -224,15 +229,18 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletTamamla " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletTamamla end");
         }
 
         private void malzemeTamamla()
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeTamamla begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -324,11 +332,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeTamamla " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeTamamla end");
         }
 
         private void sayimTamamla()
@@ -367,6 +377,7 @@ namespace KoctasWM_Project
 
         private void btn_Onayla_Click(object sender, EventArgs e)
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_btn_Onayla_Click begin");
             try
             {
                 miktar = Convert.ToDecimal(txtMiktar.Text.ToString().Trim());
@@ -534,12 +545,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_btn_Onayla_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_btn_Onayla_Click end");
         }
 
         private void txtDepoAdresi_KeyDown(object sender, KeyEventArgs e)
@@ -574,6 +586,7 @@ namespace KoctasWM_Project
 
         private void paletKontrol()
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletKontrol begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -613,15 +626,18 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletKontrol " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_paletKontrol end");
         }
 
         private void malzemeKontrol()
         {
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeKontrol begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -677,11 +693,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeKontrol " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim_malzemeKontrol end");
         }
 
         private void txtPaletMalzemeNo_KeyDown(object sender, KeyEventArgs e)

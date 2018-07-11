@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_07_Depo_Adres_Sorgulama : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_07_Depo_Adres_Sorgulama).Name);
         public frm_07_Depo_Adres_Sorgulama()
         {
             InitializeComponent();
@@ -22,10 +23,10 @@ namespace KoctasWM_Project
 
         private void frm_07_Depo_Adres_Sorgulama_Load(object sender, EventArgs e)
         {
+            logger.info("frm_07_Depo_Adres_Sorgulama_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
-
             drAdres = new DataTable();
             drAdres.Columns.Add("malzemeNo");
             drAdres.Columns.Add("malzemeTanim");
@@ -36,8 +37,8 @@ namespace KoctasWM_Project
             drAdres.Columns.Add("toplanacakMiktar");
             drAdres.Columns.Add("paletNo");
             drAdres.Columns.Add("ean");
-
             txtAdresNo.Focus();
+            logger.info("frm_07_Depo_Adres_Sorgulama_Load end");
         }
 
         private void txtPaletNo_GotFocus(object sender, EventArgs e)
@@ -55,8 +56,6 @@ namespace KoctasWM_Project
             try
             {
                 frm_07_Depo_Adres_Sorgulama_Detay frm = new frm_07_Depo_Adres_Sorgulama_Detay();
-
-                
                 frm._malzemeNo = drAdres.Rows[grd_List.CurrentCell.RowNumber]["malzemeNo"].ToString();
                 frm._adres = drAdres.Rows[grd_List.CurrentCell.RowNumber]["adres"].ToString(); ;
                 frm._paletNo = drAdres.Rows[grd_List.CurrentCell.RowNumber]["paletNo"].ToString();
@@ -66,7 +65,6 @@ namespace KoctasWM_Project
                 frm._stokTipi = drAdres.Rows[grd_List.CurrentCell.RowNumber]["stokTipi"].ToString();
                 frm._toplanacakMiktar = drAdres.Rows[grd_List.CurrentCell.RowNumber]["toplanacakMiktar"].ToString();
                 frm._ean = drAdres.Rows[grd_List.CurrentCell.RowNumber]["ean"].ToString();
-
                 frm.ShowDialog();
             }
             catch (Exception ex)
@@ -82,6 +80,7 @@ namespace KoctasWM_Project
 
         private void txtAdresNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_07_Depo_Adres_Sorgulama_Load_txtAdresNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtAdresNo.Text.ToString().Trim() == "")
@@ -147,6 +146,7 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_07_Depo_Adres_Sorgulama_Load_txtAdresNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
@@ -154,7 +154,8 @@ namespace KoctasWM_Project
                 }
 
             }
+            logger.info("frm_07_Depo_Adres_Sorgulama_Load_txtAdresNo_KeyDown end");
         }
-
+        
     }
 }

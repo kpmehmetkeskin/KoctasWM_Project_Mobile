@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_07_Depo_Urun_Sorgulama : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_07_Depo_Urun_Sorgulama).Name);
         public frm_07_Depo_Urun_Sorgulama()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_07_Depo_Urun_Sorgulama_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -113,6 +115,7 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_07_Depo_Urun_Sorgulama_txtMalzemeNo_KeyDown "+ ex.Message);
                 }
                 finally
                 {
@@ -120,11 +123,12 @@ namespace KoctasWM_Project
                 }
 
             }
+            logger.info("frm_07_Depo_Urun_Sorgulama_txtMalzemeNo_KeyDown end");
         }
 
         private void frm_07_Depo_Urun_Sorgulama_Load(object sender, EventArgs e)
         {
-
+            logger.info("frm_07_Depo_Urun_Sorgulama_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
 
@@ -144,6 +148,7 @@ namespace KoctasWM_Project
 
 
             txtMalzemeNo.Focus();
+            logger.info("frm_07_Depo_Urun_Sorgulama_Load end");
         }
 
         private void grd_List_DoubleClick(object sender, EventArgs e)

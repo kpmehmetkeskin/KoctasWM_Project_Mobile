@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz).Name);
         public frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz()
         {
             InitializeComponent();
@@ -125,7 +126,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            
+            logger.info("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -196,11 +197,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click end");
         }
 
         private void btn_Geri_Click(object sender, EventArgs e)

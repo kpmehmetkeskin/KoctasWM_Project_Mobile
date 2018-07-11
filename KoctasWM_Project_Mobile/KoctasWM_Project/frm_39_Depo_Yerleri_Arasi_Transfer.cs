@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_39_Depo_Yerleri_Arasi_Transfer : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_39_Depo_Yerleri_Arasi_Transfer).Name);
         public frm_39_Depo_Yerleri_Arasi_Transfer()
         {
             InitializeComponent();
@@ -88,6 +89,7 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_39_Depo_Yerleri_Arasi_Transfer_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -131,6 +133,7 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_39_Depo_Yerleri_Arasi_Transfer_txtMalzemeNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
@@ -138,10 +141,12 @@ namespace KoctasWM_Project
                 }
 
             }
+            logger.info("frm_39_Depo_Yerleri_Arasi_Transfer_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_39_Depo_Yerleri_Arasi_Transfer_btn_Kaydet_Click begin");
             decimal miktar;
 
             if (_malzemeAdresi == "")
@@ -218,12 +223,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_39_Depo_Yerleri_Arasi_Transfer_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-
+            logger.info("frm_39_Depo_Yerleri_Arasi_Transfer_btn_Kaydet_Click end");
         }
 
         private void btn_Geri_Click(object sender, EventArgs e)

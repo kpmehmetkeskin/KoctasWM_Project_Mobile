@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D).Name);
         public frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D_btn_Kaydet_Click begin");
 
             if (!_atfKontrol)
             {
@@ -144,6 +146,7 @@ catch (Exception ex)
 {
 MessageBox.Show(ex.Message, "HATA");
 }*/
+            logger.info("frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D_btn_Kaydet_Click end");
         }
 
         private void txtOkutulanFaturaNo_KeyDown(object sender, KeyEventArgs e)

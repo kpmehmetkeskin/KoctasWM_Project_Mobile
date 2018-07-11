@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay).Name);
         public frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay()
         {
             InitializeComponent();
@@ -63,6 +64,7 @@ namespace KoctasWM_Project
        
         private void koliTipiCek()
         {
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_koliTipiCek begin");
             //Koli Tipleri Çekiliyor
             WS_Yardim.ZKT_WM_WS_YARDIMService srv = new KoctasWM_Project.WS_Yardim.ZKT_WM_WS_YARDIMService();
             WS_Yardim.ZKtWmWsKoliTipleri chk = new KoctasWM_Project.WS_Yardim.ZKtWmWsKoliTipleri();
@@ -96,6 +98,7 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(resp.EsResponse[0].Message.ToString(), "HATA");
             }
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_koliTipiCek end");
         }
 
         private void koliTipiDoldur()
@@ -305,6 +308,7 @@ namespace KoctasWM_Project
 
         private void txtKargoKoliNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtKargoKoliNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtKargoKoliNo.Text.Trim() == "")
@@ -345,12 +349,14 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtKargoKoliNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtKargoKoliNo_KeyDown end");
         }
 
         private void cmbKoliTipi_SelectedIndexChanged(object sender, EventArgs e)
@@ -429,6 +435,7 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.Trim() == "")
@@ -552,12 +559,14 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtMalzemeNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_Onayla_Click(object sender, EventArgs e)
@@ -683,7 +692,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-
+            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_btn_Kaydet_Click begin");
             if (!toplamMiktarKarsilastir())
             {
                 MessageBox.Show("Dağıtım adresindeki tüm ürünler koliye aktarılmadı. Kontrol ediniz.", "HATA");
@@ -832,11 +841,13 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString(), "HATA");
+                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_btn_Kaydet_Click "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
+                logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_btn_Kaydet_Click end");
             }
         }
 

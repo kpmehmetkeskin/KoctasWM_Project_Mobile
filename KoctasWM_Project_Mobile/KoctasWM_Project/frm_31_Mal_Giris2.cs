@@ -7,11 +7,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_31_Mal_Giris2 : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_31_Mal_Giris2).Name);
         public frm_31_Mal_Giris2()
         {
             InitializeComponent();
@@ -417,6 +418,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+            logger.info("frm_31_Mal_Giris2_btn_Kaydet_Click begin");
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -483,11 +485,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_31_Mal_Giris2_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_31_Mal_Giris2_btn_Kaydet_Click end");
         }
 
 

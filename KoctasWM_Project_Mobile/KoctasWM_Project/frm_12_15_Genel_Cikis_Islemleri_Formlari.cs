@@ -6,11 +6,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_12_15_Genel_Cikis_Islemleri_Formlari : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_12_15_Genel_Cikis_Islemleri_Formlari).Name);
         public frm_12_15_Genel_Cikis_Islemleri_Formlari()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace KoctasWM_Project
 
         private void frm_12_15_Genel_Cikis_Islemleri_Formlari_Load(object sender, EventArgs e)
         {
+            
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -109,6 +111,7 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtAdresNo.Text.Trim() == "")
@@ -166,16 +169,20 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtMalzemeNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
+
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtMalzemeNo_KeyDown end");
         }
 
         private void txtPaletMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtPaletMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletMalzemeNo.Text.Trim() == "")
@@ -277,6 +284,7 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
+                    logger.error("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtPaletMalzemeNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
@@ -285,12 +293,13 @@ namespace KoctasWM_Project
 
 
             }
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_txtPaletMalzemeNo_KeyDown end");
         }
 
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_btn_Kaydet_Click begin");
             if (txtMiktar.Text.Trim() == "")
             {
                 return;
@@ -432,11 +441,13 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_12_15_Genel_Cikis_Islemleri_Formlari_btn_Kaydet_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
+            logger.info("frm_12_15_Genel_Cikis_Islemleri_Formlari_btn_Kaydet_Click end");
         }
 
         private void txtMiktar_KeyDown(object sender, KeyEventArgs e)

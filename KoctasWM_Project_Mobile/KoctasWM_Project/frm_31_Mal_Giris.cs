@@ -8,11 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.Web.Services.Protocols;
-
+using Microsoft.Win32;
 namespace KoctasWM_Project
 {
     public partial class frm_31_Mal_Giris : Form
     {
+        private VMLogger logger = new VMLogger(typeof(frm_31_Mal_Giris).Name);
         public frm_31_Mal_Giris()
         {
             InitializeComponent();
@@ -169,6 +170,7 @@ namespace KoctasWM_Project
 
         private void btn_KontrolEt_Click(object sender, EventArgs e)
         {
+            logger.info("frm_31_Mal_Giris_btn_KontrolEt_Click begin");
             if (txtSevkiyatNo.Text.Trim() == "")
             {
                 MessageBox.Show("Sevkiyat No giriniz", "HATA");
@@ -274,12 +276,14 @@ namespace KoctasWM_Project
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_31_Mal_Giris_btn_KontrolEt_Click " + ex.Message);
             }
 
             if (lenght == 0)
             {
                 MessageBox.Show("Girilen sevkiyat numarasına ait mal kabulu yapılacak sipariş listesi bulunmamaktadır.", "BİLGİ");
             }
+            logger.info("frm_31_Mal_Giris_btn_KontrolEt_Click end");
         }
 
         private void txtSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -292,6 +296,7 @@ namespace KoctasWM_Project
 
         private void btn_Ekle_Click(object sender, EventArgs e)
         {
+            logger.info("frm_31_Mal_Giris_btn_Ekle_Click begin");
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -353,7 +358,9 @@ namespace KoctasWM_Project
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show(ex.Message, "HATA");
+                logger.error("frm_31_Mal_Giris_btn_Ekle_Click " + ex.Message);
             }
+            logger.info("frm_31_Mal_Giris_btn_Ekle_Click end");
         }
 
         private void dtp_belge_ValueChanged(object sender, EventArgs e)
