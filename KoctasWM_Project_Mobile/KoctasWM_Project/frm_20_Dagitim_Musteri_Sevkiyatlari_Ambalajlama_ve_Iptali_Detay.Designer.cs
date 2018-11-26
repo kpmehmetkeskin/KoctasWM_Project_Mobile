@@ -96,7 +96,7 @@
             this.btn_Onayla.Name = "btn_Onayla";
             this.btn_Onayla.PressedImage = null;
             this.btn_Onayla.Size = new System.Drawing.Size(75, 26);
-            this.btn_Onayla.TabIndex = 74;
+            this.btn_Onayla.TabIndex = 3;
             this.btn_Onayla.Text = "Onayla";
             this.btn_Onayla.Click += new System.EventHandler(this.btn_Onayla_Click);
             // 
@@ -116,7 +116,7 @@
             this.txtKolilenecekMiktar.Location = new System.Drawing.Point(3, 16);
             this.txtKolilenecekMiktar.Name = "txtKolilenecekMiktar";
             this.txtKolilenecekMiktar.Size = new System.Drawing.Size(53, 23);
-            this.txtKolilenecekMiktar.TabIndex = 60;
+            this.txtKolilenecekMiktar.TabIndex = 2;
             this.txtKolilenecekMiktar.GotFocus += new System.EventHandler(this.txtKolilenecekMiktar_GotFocus);
             this.txtKolilenecekMiktar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKolilenecekMiktar_KeyDown);
             // 
@@ -206,7 +206,7 @@
             this.txtKargoKoliNo.Location = new System.Drawing.Point(131, 3);
             this.txtKargoKoliNo.Name = "txtKargoKoliNo";
             this.txtKargoKoliNo.Size = new System.Drawing.Size(178, 23);
-            this.txtKargoKoliNo.TabIndex = 3;
+            this.txtKargoKoliNo.TabIndex = 0;
             this.txtKargoKoliNo.GotFocus += new System.EventHandler(this.txtKargoKoliNo_GotFocus);
             this.txtKargoKoliNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKargoKoliNo_KeyDown);
             // 
@@ -230,7 +230,7 @@
             this.txtDesiBilgisi.Location = new System.Drawing.Point(110, 53);
             this.txtDesiBilgisi.Name = "txtDesiBilgisi";
             this.txtDesiBilgisi.Size = new System.Drawing.Size(134, 23);
-            this.txtDesiBilgisi.TabIndex = 5;
+            this.txtDesiBilgisi.TabIndex = 7;
             this.txtDesiBilgisi.GotFocus += new System.EventHandler(this.textBox1_GotFocus);
             this.txtDesiBilgisi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDesiBilgisi_KeyDown);
             // 
@@ -249,7 +249,7 @@
             this.cmbKoliTipi.Location = new System.Drawing.Point(110, 26);
             this.cmbKoliTipi.Name = "cmbKoliTipi";
             this.cmbKoliTipi.Size = new System.Drawing.Size(134, 23);
-            this.cmbKoliTipi.TabIndex = 1;
+            this.cmbKoliTipi.TabIndex = 6;
             this.cmbKoliTipi.SelectedIndexChanged += new System.EventHandler(this.cmbKoliTipi_SelectedIndexChanged);
             this.cmbKoliTipi.GotFocus += new System.EventHandler(this.comboBox1_GotFocus);
             // 
@@ -266,7 +266,7 @@
             this.txt_newKoliNo.Location = new System.Drawing.Point(110, 1);
             this.txt_newKoliNo.Name = "txt_newKoliNo";
             this.txt_newKoliNo.Size = new System.Drawing.Size(137, 23);
-            this.txt_newKoliNo.TabIndex = 72;
+            this.txt_newKoliNo.TabIndex = 5;
             this.txt_newKoliNo.TextChanged += new System.EventHandler(this.txt_newKoliNo_TextChanged);
             // 
             // lbl_KoliTipi
@@ -293,7 +293,7 @@
             this.txtMalzemeNo.Location = new System.Drawing.Point(131, 3);
             this.txtMalzemeNo.Name = "txtMalzemeNo";
             this.txtMalzemeNo.Size = new System.Drawing.Size(178, 23);
-            this.txtMalzemeNo.TabIndex = 5;
+            this.txtMalzemeNo.TabIndex = 1;
             this.txtMalzemeNo.GotFocus += new System.EventHandler(this.txtMalzemeNo_GotFocus);
             this.txtMalzemeNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMalzemeNo_KeyDown);
             // 
@@ -344,7 +344,7 @@
             this.btn_next.Name = "btn_next";
             this.btn_next.PressedImage = null;
             this.btn_next.Size = new System.Drawing.Size(106, 44);
-            this.btn_next.TabIndex = 76;
+            this.btn_next.TabIndex = 4;
             this.btn_next.Text = "   TAMAMLA";
             this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
@@ -382,7 +382,7 @@
             this.btn_approveKoliDesi.Name = "btn_approveKoliDesi";
             this.btn_approveKoliDesi.PressedImage = null;
             this.btn_approveKoliDesi.Size = new System.Drawing.Size(75, 26);
-            this.btn_approveKoliDesi.TabIndex = 75;
+            this.btn_approveKoliDesi.TabIndex = 8;
             this.btn_approveKoliDesi.Text = "Onayla";
             this.btn_approveKoliDesi.Click += new System.EventHandler(this.btn_approveKoliDesi_Click);
             // 
@@ -396,7 +396,7 @@
             this.btn_Kaydet.Name = "btn_Kaydet";
             this.btn_Kaydet.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_Kaydet.PressedImage")));
             this.btn_Kaydet.Size = new System.Drawing.Size(117, 47);
-            this.btn_Kaydet.TabIndex = 65;
+            this.btn_Kaydet.TabIndex = 9;
             this.btn_Kaydet.Text = "   TAMAMLA";
             this.btn_Kaydet.Click += new System.EventHandler(this.btn_Kaydet_Click);
             // 
