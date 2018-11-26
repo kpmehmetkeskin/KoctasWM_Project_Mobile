@@ -6,7 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay : Form
@@ -18,6 +18,8 @@ namespace KoctasWM_Project
         }
 
         DataTable _topla = new DataTable();
+        DataTable _toplaSecondScreen = new DataTable();
+        private int secondScreenDateGridIndex = 0;
         public DataTable _koliTipiTablo = new DataTable();
         public WS_Kontrol.ZktWmStAmbalaj[] _dagitimListesi;
         public string _Vbeln;
@@ -192,8 +194,8 @@ namespace KoctasWM_Project
 
         private void frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = false; 
+
+            this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
 
             _topla = new DataTable();
@@ -215,7 +217,7 @@ namespace KoctasWM_Project
             koliTipiCek();
             koliTipiDoldur();
 
-            cmbKoliTipi.Focus();
+            //cmbKoliTipi.Focus();
 
             Utility.selectText(txtKargoKoliNo);
 
@@ -303,7 +305,7 @@ namespace KoctasWM_Project
                     }
                 }
             }
-            if (!buldum) cmbKoliTipi.Focus();
+            //if (!buldum) cmbKoliTipi.Focus();
         }
 
         private void txtKargoKoliNo_KeyDown(object sender, KeyEventArgs e)
@@ -342,7 +344,7 @@ namespace KoctasWM_Project
                     else
                     {
                         MessageBox.Show(resp.EsResponse[0].Message.ToString(), "HATA");
-                        Utility.selectText(txtKargoKoliNo);
+                        Utility.selectText(txtMalzemeNo);
                     }
 
                 }
@@ -354,6 +356,8 @@ namespace KoctasWM_Project
                 finally
                 {
                     Cursor.Current = Cursors.Default;
+                    Utility.selectText(txtMalzemeNo);
+                    txtMalzemeNo.Enabled = true;
                 }
             }
             logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtKargoKoliNo_KeyDown end");
@@ -435,7 +439,6 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.Trim() == "")
@@ -472,14 +475,14 @@ namespace KoctasWM_Project
                                 txtDesiBilgisi.Enabled = true;
                                 MessageBox.Show("Desi bilgisi giriniz", "HATA");
                                 txtDesiBilgisi.Text = "";
-                                Utility.selectText(txtDesiBilgisi);
+                                Utility.selectText(txtKolilenecekMiktar);
                             }
                         }
                         else
                         {
                             txtDesiBilgisi.Enabled = true;
                             MessageBox.Show("Desi bilgisi giriniz", "HATA");
-                            Utility.selectText(txtDesiBilgisi);
+                            Utility.selectText(txtKolilenecekMiktar);
                         }
                     }
                     
@@ -540,6 +543,7 @@ namespace KoctasWM_Project
                         {
                             txtKolilenecekMiktar.Enabled = true;
                             btn_Onayla.Enabled = true;
+                            btn_next.Enabled = true;
                             Utility.selectText(txtKolilenecekMiktar);
                         }
                         else
@@ -582,22 +586,22 @@ namespace KoctasWM_Project
                 return;
             }
 
-            try
-            {
-                _koliTipiDesi = txtDesiBilgisi.Text.ToString().Trim();
-                if (!(Convert.ToDecimal(_koliTipiDesi) > 0))
-                {
-                    MessageBox.Show("Desi bilgisi sıfırdan büyük olmalı", "HATA");
-                    Utility.selectText(txtDesiBilgisi);
-                    return;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Desi bilgisi alanı sayısal bir değer olmalıdır", "HATA");
-                Utility.selectText(txtDesiBilgisi);
-                return;
-            }
+            //try
+            //{
+            //    _koliTipiDesi = txtDesiBilgisi.Text.ToString().Trim();
+            //    if (!(Convert.ToDecimal(_koliTipiDesi) > 0))
+            //    {
+            //        MessageBox.Show("Desi bilgisi sıfırdan büyük olmalı", "HATA");
+            //        Utility.selectText(txtDesiBilgisi);
+            //        return;
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Desi bilgisi alanı sayısal bir değer olmalıdır", "HATA");
+            //    Utility.selectText(txtDesiBilgisi);
+            //    return;
+            //}
 
             if (!(miktar > 0))
             {
@@ -692,15 +696,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_btn_Kaydet_Click begin");
-            if (!toplamMiktarKarsilastir())
-            {
-                MessageBox.Show("Dağıtım adresindeki tüm ürünler koliye aktarılmadı. Kontrol ediniz.", "HATA");
-                return;
-            }
-            
-            
-            
             if (MessageBox.Show("Mal çıkışını onaylıyor musunuz?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -851,5 +846,107 @@ namespace KoctasWM_Project
             }
         }
 
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            if (!toplamMiktarKarsilastir())
+            {
+                MessageBox.Show("Dağıtım adresindeki tüm ürünler koliye aktarılmadı. Kontrol ediniz.", "HATA");
+                return;
+            }
+
+            panel1.Left = 337;
+            panel2.Left = 0;
+            setupSecondScreen();
+        }
+
+        private void setupSecondScreen()
+        {
+            _toplaSecondScreen.Columns.Add("Koli_No");
+            _toplaSecondScreen.Columns.Add("Koli_Tipi");
+            _toplaSecondScreen.Columns.Add("Desi_Bilgisi");
+
+            List<String> discinctList = new List<String>();
+
+            for (int i = 0; i < _topla.Rows.Count; i++)
+            {
+                if (discinctList.Contains(_topla.Rows[i]["KoliNo"].ToString()))
+                    continue;
+
+                DataRow dataRow = _toplaSecondScreen.NewRow();
+                dataRow["Koli_No"] = _topla.Rows[i]["KoliNo"].ToString();
+                dataRow["Koli_Tipi"] = "";
+                dataRow["Desi_Bilgisi"] = "";
+                _toplaSecondScreen.Rows.Add(dataRow);
+                discinctList.Add(_topla.Rows[i]["KoliNo"].ToString());
+            }
+            dataGridView1.DataSource = _toplaSecondScreen;
+
+            //try
+            //{
+            //    if (dataGridView1.Rows.Count > 0)
+            //    {
+            //        dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.Yellow;
+            //        dataGridView1.Rows[0].Selected = false;
+            //    }
+
+            //    if (dataGridView1.Rows[0].Cells.Count > 0)
+            //        txt_newKoliNo.Text = dataGridView1.Rows[0].Cells["Koli_No"].Value.ToString();
+            //}
+            //catch (Exception e)
+            //{ }
+        }
+
+        private void btn_approveKoliDesi_Click(object sender, EventArgs e)
+        {
+            if (txt_newKoliNo.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Kargo No Giriniz");
+                return;
+            }
+
+            if (cmbKoliTipi.SelectedIndex <= 0 || txtDesiBilgisi.Equals(""))
+            {
+                MessageBox.Show("Lütfen Koli Tipi Seçiniz");
+                return;
+            }
+
+            if (secondScreenDateGridIndex < dataGridView1.VisibleRowCount && secondScreenDateGridIndex != -1)
+            {
+                dataGridView1[secondScreenDateGridIndex,1] = cmbKoliTipi.SelectedItem.ToString();
+                dataGridView1[secondScreenDateGridIndex,2] = txtDesiBilgisi.Text;
+                //dataGridView1.Rows[secondScreenDateGridIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+
+                for (int i = 0; i < _topla.Rows.Count; i++)
+                {
+                    if (_topla.Rows[i]["KoliNo"].ToString().Equals(txt_newKoliNo.Text))
+                    {
+                        _topla.Rows[i]["KoliTipi"] = _koliTipi;
+                        _topla.Rows[i]["Desi"] = _koliTipiDesi;
+                    }
+                }
+
+                //dataGridView1.Rows[secondScreenDateGridIndex].Selected = true;
+                txt_newKoliNo.Text = dataGridView1[secondScreenDateGridIndex,0].ToString();
+                //dataGridView1.Rows[secondScreenDateGridIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+
+                txt_newKoliNo.Text = "";
+                cmbKoliTipi.SelectedIndex = 0;
+                txtDesiBilgisi.Text = "";
+            }
+        }
+
+        private void txt_newKoliNo_TextChanged(object sender, EventArgs e)
+        {
+            cmbKoliTipi.Enabled = true;
+            secondScreenDateGridIndex = -1;
+            for (int i = 0; i < dataGridView1.VisibleRowCount; i++)
+            {
+                if (dataGridView1[i,0].ToString().Equals(txt_newKoliNo.Text))
+                {
+                    secondScreenDateGridIndex = i;
+                    //dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                }
+            }
+        }
     }
 }

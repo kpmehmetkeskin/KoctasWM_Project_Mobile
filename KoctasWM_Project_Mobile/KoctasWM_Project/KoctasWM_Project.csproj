@@ -456,6 +456,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_07_Depo_Urun_Sorgulama.resx">
       <DependentUpon>frm_07_Depo_Urun_Sorgulama.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_08_Depo_Fark_Giris_Cikislari.resx">
       <DependentUpon>frm_08_Depo_Fark_Giris_Cikislari.cs</DependentUpon>
@@ -471,6 +472,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama.resx">
       <DependentUpon>frm_11_Toplama_Ikmal_Nakil_Sip_Onaylama.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_12_15_Genel_Cikis_Islemleri_Formlari.resx">
       <DependentUpon>frm_12_15_Genel_Cikis_Islemleri_Formlari.cs</DependentUpon>
@@ -478,9 +480,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_14_Genel_Cikis_Isl_Masraf_Yerine_Cikis.resx">
       <DependentUpon>frm_14_Genel_Cikis_Isl_Masraf_Yerine_Cikis.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis.resx">
       <DependentUpon>frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi.resx">
       <DependentUpon>frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi.cs</DependentUpon>
@@ -508,69 +512,91 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay.resx">
       <DependentUpon>frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali.resx">
       <DependentUpon>frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol.resx">
       <DependentUpon>frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D.resx">
       <DependentUpon>frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D.resx">
       <DependentUpon>frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi.resx">
       <DependentUpon>frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_23_Dagitim_Mag_Sev_Paletleme_Iptali.resx">
       <DependentUpon>frm_23_Dagitim_Mag_Sev_Paletleme_Iptali.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi.resx">
       <DependentUpon>frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim.resx">
       <DependentUpon>frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_Detay.resx">
       <DependentUpon>frm_25_Sayim_Islemleri_Canli_Oncesi_Sayim_Detay.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_26_Sayim_Islemleri_Envanter_Sayimi_Kullanici_Secimi_ile_Sayim.resx">
       <DependentUpon>frm_26_Sayim_Islemleri_Envanter_Sayimi_Kullanici_Secimi_ile_Sayim.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim.resx">
       <DependentUpon>frm_26_Sayim_Islemleri_Envanter_Sayimi_Sistem_Onerisi_Sayim.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_31_Mal_Giris.resx">
       <DependentUpon>frm_31_Mal_Giris.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_31_Mal_Giris2.resx">
       <DependentUpon>frm_31_Mal_Giris2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_32_1_Sarfa_Gonderilecek_Urunler.resx">
       <DependentUpon>frm_32_1_Sarfa_Gonderilecek_Urunler.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_32_Musteri_Iade_Girisi.resx">
       <DependentUpon>frm_32_Musteri_Iade_Girisi.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_32_v2_Musteri_Iade_Girisi.resx">
       <DependentUpon>frm_32_v2_Musteri_Iade_Girisi.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_37_Toplama_Iptal_Alanindan_Transferler.resx">
       <DependentUpon>frm_37_Toplama_Iptal_Alanindan_Transferler.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis.resx">
       <DependentUpon>frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_39_Depo_Yerleri_Arasi_Transfer.resx">
       <DependentUpon>frm_39_Depo_Yerleri_Arasi_Transfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_40__Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris_Mgz.resx">
       <DependentUpon>frm_40__Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris_Mgz.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz.resx">
       <DependentUpon>frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu.resx">
       <DependentUpon>frm_Menu.cs</DependentUpon>
@@ -586,6 +612,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Envanter_Islemleri.resx">
       <DependentUpon>frm_Menu_Envanter_Islemleri.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_MalGirisiPaletleme.resx">
       <DependentUpon>frm_Menu_MalGirisiPaletleme.cs</DependentUpon>
@@ -597,6 +624,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Mal_Cikis_Sevkiyat_Islemleri.resx">
       <DependentUpon>frm_Menu_Mal_Cikis_Sevkiyat_Islemleri.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Mal_Cikis_Toplama_Islemleri.resx">
       <DependentUpon>frm_Menu_Mal_Cikis_Toplama_Islemleri.cs</DependentUpon>
@@ -604,9 +632,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Sayim_Islemleri.resx">
       <DependentUpon>frm_Menu_Sayim_Islemleri.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Sayim_Islemleri_Envanter_Sayim.resx">
       <DependentUpon>frm_Menu_Sayim_Islemleri_Envanter_Sayim.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu_Set_Urun_Islemleri.resx">
       <DependentUpon>frm_Menu_Set_Urun_Islemleri.cs</DependentUpon>
@@ -614,12 +644,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Msg.resx">
       <DependentUpon>frm_Msg.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Waiting.resx">
       <DependentUpon>frm_Waiting.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_WMLogin.resx">
       <DependentUpon>frm_WMLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
