@@ -363,7 +363,7 @@ namespace KoctasWM_Project
             logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_txtKargoKoliNo_KeyDown end");
         }
 
-        private void cmbKoliTipi_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbKoliTipi_SelectedIndexChanged(object sender, EventArgs e)   //*
         {
             if (cmbKoliTipi.SelectedIndex == 0)
             {
@@ -375,7 +375,7 @@ namespace KoctasWM_Project
             string koliTanimi = cmbKoliTipi.Text.ToString();
             _koliTipi = koliTipiVer(koliTanimi);
             _koliTipiDesi = koliTipiDesiVer(koliTanimi);
-            
+            txtDesiBilgisi.Text = _koliTipiDesi.ToString();
             
             if (_koliTipi == "26")
             {
@@ -409,7 +409,7 @@ namespace KoctasWM_Project
                 koliDesiKontrol = false;
                 Utility.selectText(txtDesiBilgisi);
             }
-
+            
             
         }
 
@@ -644,7 +644,7 @@ namespace KoctasWM_Project
             if (yeni)
             {
                 DataRow row = _topla.NewRow();
-                row["Desi"] = _koliTipiDesi;
+                row["Desi"] = txtDesiBilgisi.Text;
                 row["KoliNo"] = txtKargoKoliNo.Text.ToString().Trim();
                 row["KoliTipi"] = _koliTipi;
                 row["Lfimg"] = toplamMiktar;
@@ -921,7 +921,7 @@ namespace KoctasWM_Project
                     if (_topla.Rows[i]["KoliNo"].ToString().Equals(txt_newKoliNo.Text))
                     {
                         _topla.Rows[i]["KoliTipi"] = _koliTipi;
-                        _topla.Rows[i]["Desi"] = _koliTipiDesi;
+                        _topla.Rows[i]["Desi"] = txtDesiBilgisi.Text;
                     }
                 }
 
