@@ -24,7 +24,7 @@ namespace KoctasWM_Project
 
         DataTable _yukle;
 
-
+        private Boolean isReadMaterial = false;
         
 
         private void frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_Load(object sender, EventArgs e)
@@ -126,6 +126,23 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
+
+            if (txtTeslimatMiktari.Text.Equals(txtKalanMiktar.Text))
+            {
+                MessageBox.Show("Önce malzeme okutunuz..","Hata!");
+                return;
+            }
+
+            if (!isReadMaterial)
+            {
+                MessageBox.Show("Önce malzeme okutunuz..", "Hata!");
+                return;
+            }
+            else
+            {
+                isReadMaterial = false;
+            }
+
             logger.info("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click begin");
             Cursor.Current = Cursors.WaitCursor;
             try
@@ -177,7 +194,7 @@ namespace KoctasWM_Project
                     {
                         MessageBox.Show(GlobalData.rMsg[0].Message.ToString(), "BİLGİ");
                         Utility.moreMsgCheck(GlobalData.rMsg);
-                        this.Close();
+                        //this.Close();
                     }
                     else
                     {
@@ -215,6 +232,7 @@ namespace KoctasWM_Project
         {
             try
             {
+                isReadMaterial = true;
                 miktar = Convert.ToDecimal(txtDagitimMiktari.Text.ToString().Trim());
             }
             catch
