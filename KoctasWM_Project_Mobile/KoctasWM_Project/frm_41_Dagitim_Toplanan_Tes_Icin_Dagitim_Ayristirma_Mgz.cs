@@ -194,7 +194,7 @@ namespace KoctasWM_Project
                     {
                         MessageBox.Show(GlobalData.rMsg[0].Message.ToString(), "BİLGİ");
                         Utility.moreMsgCheck(GlobalData.rMsg);
-                        //this.Close();
+                        this.Close();
                     }
                     else
                     {
