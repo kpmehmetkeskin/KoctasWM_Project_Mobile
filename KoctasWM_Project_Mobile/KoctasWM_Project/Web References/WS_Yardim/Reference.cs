@@ -31,6 +31,7 @@ namespace KoctasWM_Project.WS_Yardim {
         public ZKT_WM_WS_YARDIMService() {
             this.Url = "http://kterpdev.koctas.com.tr:8000/sap/bc/srt/rfc/sap/zkt_wm_ws_yardim/500/zkt_wm" +
                 "_ws_yardimservice/zkt_wm_ws_yardim";
+            this.Timeout = 300000;    // Gökhanın isteği üzerine timeout, 5 dk ya çıkartıldı.
         }
         
         /// <remarks/>
