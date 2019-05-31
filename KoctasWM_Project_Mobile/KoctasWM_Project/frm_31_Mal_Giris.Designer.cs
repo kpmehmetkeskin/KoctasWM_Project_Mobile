@@ -179,7 +179,6 @@
             this.txtIrsaliyeNo.Size = new System.Drawing.Size(88, 21);
             this.txtIrsaliyeNo.TabIndex = 3;
             this.txtIrsaliyeNo.GotFocus += new System.EventHandler(this.txtIrsaliyeNo_GotFocus);
-            this.txtIrsaliyeNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIrsaliyeNo_KeyPress);
             // 
             // p4
             // 
