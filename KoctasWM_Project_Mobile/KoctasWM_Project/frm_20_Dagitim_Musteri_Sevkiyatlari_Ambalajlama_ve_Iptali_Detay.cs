@@ -343,6 +343,7 @@ namespace KoctasWM_Project
                     }
                     else
                     {
+                        txtKargoKoliNo.Text = "";
                         MessageBox.Show(resp.EsResponse[0].Message.ToString(), "HATA");
                         Utility.selectText(txtMalzemeNo);
                     }
