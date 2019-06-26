@@ -31,7 +31,6 @@ namespace KoctasWM_Project.WS_Kontrol {
         public ZKT_WM_WS_KONTROLSERVICE() {
             this.Url = "http://kterpdev.koctas.com.tr:8000/sap/bc/srt/rfc/sap/zkt_wm_ws_kontrol/500/zkt_w" +
                 "m_ws_kontrolservice/zkt_wm_ws_kontrol";
-            this.Timeout = 300000;    // Gökhanın isteği üzerine timeout, 5 dk ya çıkartıldı.
         }
         
         /// <remarks/>

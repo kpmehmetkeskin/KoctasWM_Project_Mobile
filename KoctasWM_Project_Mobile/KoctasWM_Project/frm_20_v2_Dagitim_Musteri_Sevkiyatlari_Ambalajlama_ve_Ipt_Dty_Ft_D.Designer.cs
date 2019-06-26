@@ -32,8 +32,8 @@
             this.txtAtfNo = new System.Windows.Forms.TextBox();
             this.lbl_LoginInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_AtfAl = new KoctasWM_Project.PictureButton();
             this.btn_Geri = new KoctasWM_Project.PictureButton();
+            this.btn_AtfAl = new KoctasWM_Project.PictureButton();
             this.btn_Kaydet = new KoctasWM_Project.PictureButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,19 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(312, 29);
             // 
-            // btn_AtfAl
-            // 
-            this.btn_AtfAl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
-            this.btn_AtfAl.BackgroundImage = null;
-            this.btn_AtfAl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_AtfAl.ForeColor = System.Drawing.Color.White;
-            this.btn_AtfAl.Location = new System.Drawing.Point(3, 2);
-            this.btn_AtfAl.Name = "btn_AtfAl";
-            this.btn_AtfAl.Size = new System.Drawing.Size(122, 26);
-            this.btn_AtfAl.TabIndex = 75;
-            this.btn_AtfAl.Text = "ATF No Al";
-            this.btn_AtfAl.Click += new System.EventHandler(this.btn_AtfAl_Click);
-            // 
             // btn_Geri
             // 
             this.btn_Geri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
@@ -93,6 +80,19 @@
             this.btn_Geri.Text = "İPTAL ET";
             this.btn_Geri.Click += new System.EventHandler(this.btn_Geri_Click);
             // 
+            // btn_AtfAl
+            // 
+            this.btn_AtfAl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
+            this.btn_AtfAl.BackgroundImage = null;
+            this.btn_AtfAl.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_AtfAl.ForeColor = System.Drawing.Color.White;
+            this.btn_AtfAl.Location = new System.Drawing.Point(3, 2);
+            this.btn_AtfAl.Name = "btn_AtfAl";
+            this.btn_AtfAl.Size = new System.Drawing.Size(122, 26);
+            this.btn_AtfAl.TabIndex = 75;
+            this.btn_AtfAl.Text = "ATF No Al";
+            this.btn_AtfAl.Click += new System.EventHandler(this.btn_AtfAl_Click);
+            // 
             // btn_Kaydet
             // 
             this.btn_Kaydet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
@@ -104,7 +104,7 @@
             this.btn_Kaydet.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_Kaydet.PressedImage")));
             this.btn_Kaydet.Size = new System.Drawing.Size(150, 47);
             this.btn_Kaydet.TabIndex = 75;
-            this.btn_Kaydet.Text = "   MAL ÇIKIŞ/KAYDET";
+            this.btn_Kaydet.Text = "   KAYDET";
             this.btn_Kaydet.Click += new System.EventHandler(this.btn_Kaydet_Click);
             // 
             // frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D

@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_07_Depo_Adres_Sorgulama_Detay : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_07_Depo_Adres_Sorgulama_Detay).Name);
         public frm_07_Depo_Adres_Sorgulama_Detay()
         {
             InitializeComponent();
@@ -34,7 +33,6 @@ namespace KoctasWM_Project
 
         private void frm_07_Depo_Adres_Sorgulama_Detay_Load(object sender, EventArgs e)
         {
-            logger.info("frm_07_Depo_Adres_Sorgulama_Detay_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -57,7 +55,6 @@ namespace KoctasWM_Project
             txtOlcuBirimi.Text = _olcuBirimi;
             txtStokTipi.Text = _stokTipi;
             txtEan.Text = _ean;
-            logger.info("frm_07_Depo_Adres_Sorgulama_Detay_Load end");
         }
     }
 }

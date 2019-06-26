@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_32_1_Sarfa_Gonderilecek_Urunler : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_32_1_Sarfa_Gonderilecek_Urunler).Name);
         public frm_32_1_Sarfa_Gonderilecek_Urunler()
         {
             InitializeComponent();
@@ -66,7 +65,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_32_1_Sarfa_Gonderilecek_Urunler_btn_Kaydet_Click begin");
+            
             //seçilen satırlar kontrol ediliyor
             int secilenSatirSayisi = 0;
 
@@ -149,19 +148,15 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_32_1_Sarfa_Gonderilecek_Urunler_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_32_1_Sarfa_Gonderilecek_Urunler_btn_Kaydet_Click end");
         }
 
         private void grd_List_DoubleClick(object sender, EventArgs e)
         {
-            logger.info("frm_32_1_Sarfa_Gonderilecek_Urunler_grd_List_DoubleClick begin");
-
             _secilenMalzemeNo = _stok.Rows[grd_List.CurrentCell.RowNumber]["Matnr"].ToString();
             _secilenMiktar = Convert.ToDecimal(_stok.Rows[grd_List.CurrentCell.RowNumber]["Menge"].ToString());
             
@@ -179,8 +174,8 @@ namespace KoctasWM_Project
                 _secilenMiktar = 0;
             }
 
+            
 
-            logger.info("frm_32_1_Sarfa_Gonderilecek_Urunler_grd_List_DoubleClick end");
             
         }
 

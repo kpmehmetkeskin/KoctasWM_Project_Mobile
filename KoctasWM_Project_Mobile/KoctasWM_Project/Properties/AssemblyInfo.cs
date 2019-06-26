@@ -9,10 +9,10 @@ using System.Resources;
 [assembly: AssemblyTitle("KoctasWM_Project")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Design By Koctas")]
+[assembly: AssemblyCompany("Design By Mersus Bilisim")]
 [assembly: AssemblyProduct("KoctasWM_Project")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
-[assembly: AssemblyTrademark("Koctas")]
+[assembly: AssemblyTrademark("Mersus")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -30,7 +30,7 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.1.23")]
+[assembly: AssemblyVersion("1.0.1.17")]
 
 // Below attribute is to suppress FxCop warning "CA2232 : Microsoft.Usage : Add STAThreadAttribute to assembly"
 // as Device app does not support STA thread.

@@ -29,14 +29,67 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Menu_Mal_Cikis_Sevkiyat_Islemleri));
+            this.lbl_LoginInfo = new System.Windows.Forms.Label();
+            this.checkListBttn = new KoctasWM_Project.PictureButton();
+            this.btn_MalCikisi = new KoctasWM_Project.PictureButton();
+            this.btn_MagSevYuklemeMalCikisi = new KoctasWM_Project.PictureButton();
             this.btn_MagSevPaletleme_Iptal = new KoctasWM_Project.PictureButton();
             this.btn_MusSevKoli_KargoTes_Iptal = new KoctasWM_Project.PictureButton();
             this.btn_MusSevAmb_AmbIptali = new KoctasWM_Project.PictureButton();
             this.btn_Geri = new KoctasWM_Project.PictureButton();
-            this.btn_MagSevYuklemeMalCikisi = new KoctasWM_Project.PictureButton();
-            this.btn_MalCikisi = new KoctasWM_Project.PictureButton();
-            this.lbl_LoginInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lbl_LoginInfo
+            // 
+            this.lbl_LoginInfo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
+            this.lbl_LoginInfo.ForeColor = System.Drawing.Color.Black;
+            this.lbl_LoginInfo.Location = new System.Drawing.Point(98, 257);
+            this.lbl_LoginInfo.Name = "lbl_LoginInfo";
+            this.lbl_LoginInfo.Size = new System.Drawing.Size(217, 16);
+            this.lbl_LoginInfo.Text = "Bağlı Kullanıcı: ";
+            this.lbl_LoginInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // checkListBttn
+            // 
+            this.checkListBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
+            this.checkListBttn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkListBttn.BackgroundImage")));
+            this.checkListBttn.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.checkListBttn.ForeColor = System.Drawing.Color.White;
+            this.checkListBttn.Location = new System.Drawing.Point(3, 151);
+            this.checkListBttn.Name = "checkListBttn";
+            this.checkListBttn.PressedImage = ((System.Drawing.Image)(resources.GetObject("checkListBttn.PressedImage")));
+            this.checkListBttn.Size = new System.Drawing.Size(154, 47);
+            this.checkListBttn.TabIndex = 33;
+            this.checkListBttn.Text = " KONTROL LİSTESİ YAZDIR";
+            this.checkListBttn.Click += new System.EventHandler(this.checkListBttn_Click);
+            // 
+            // btn_MalCikisi
+            // 
+            this.btn_MalCikisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
+            this.btn_MalCikisi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_MalCikisi.BackgroundImage")));
+            this.btn_MalCikisi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_MalCikisi.ForeColor = System.Drawing.Color.White;
+            this.btn_MalCikisi.Location = new System.Drawing.Point(161, 101);
+            this.btn_MalCikisi.Name = "btn_MalCikisi";
+            this.btn_MalCikisi.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_MalCikisi.PressedImage")));
+            this.btn_MalCikisi.Size = new System.Drawing.Size(154, 47);
+            this.btn_MalCikisi.TabIndex = 32;
+            this.btn_MalCikisi.Text = "    MAL ÇIKIŞI";
+            this.btn_MalCikisi.Click += new System.EventHandler(this.btn_MalCikisi_Click);
+            // 
+            // btn_MagSevYuklemeMalCikisi
+            // 
+            this.btn_MagSevYuklemeMalCikisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
+            this.btn_MagSevYuklemeMalCikisi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevYuklemeMalCikisi.BackgroundImage")));
+            this.btn_MagSevYuklemeMalCikisi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_MagSevYuklemeMalCikisi.ForeColor = System.Drawing.Color.White;
+            this.btn_MagSevYuklemeMalCikisi.Location = new System.Drawing.Point(3, 101);
+            this.btn_MagSevYuklemeMalCikisi.Name = "btn_MagSevYuklemeMalCikisi";
+            this.btn_MagSevYuklemeMalCikisi.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevYuklemeMalCikisi.PressedImage")));
+            this.btn_MagSevYuklemeMalCikisi.Size = new System.Drawing.Size(154, 47);
+            this.btn_MagSevYuklemeMalCikisi.TabIndex = 31;
+            this.btn_MagSevYuklemeMalCikisi.Text = "    YÜKLEME";
+            this.btn_MagSevYuklemeMalCikisi.Click += new System.EventHandler(this.btn_MagSevYuklemeMalCikisi_Click);
             // 
             // btn_MagSevPaletleme_Iptal
             // 
@@ -44,10 +97,10 @@
             this.btn_MagSevPaletleme_Iptal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevPaletleme_Iptal.BackgroundImage")));
             this.btn_MagSevPaletleme_Iptal.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btn_MagSevPaletleme_Iptal.ForeColor = System.Drawing.Color.White;
-            this.btn_MagSevPaletleme_Iptal.Location = new System.Drawing.Point(3, 151);
+            this.btn_MagSevPaletleme_Iptal.Location = new System.Drawing.Point(161, 151);
             this.btn_MagSevPaletleme_Iptal.Name = "btn_MagSevPaletleme_Iptal";
             this.btn_MagSevPaletleme_Iptal.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevPaletleme_Iptal.PressedImage")));
-            this.btn_MagSevPaletleme_Iptal.Size = new System.Drawing.Size(312, 47);
+            this.btn_MagSevPaletleme_Iptal.Size = new System.Drawing.Size(154, 47);
             this.btn_MagSevPaletleme_Iptal.TabIndex = 30;
             this.btn_MagSevPaletleme_Iptal.Text = "   PALETLEME";
             this.btn_MagSevPaletleme_Iptal.Visible = false;
@@ -95,44 +148,6 @@
             this.btn_Geri.Text = "GERİ";
             this.btn_Geri.Click += new System.EventHandler(this.btn_Geri_Click);
             // 
-            // btn_MagSevYuklemeMalCikisi
-            // 
-            this.btn_MagSevYuklemeMalCikisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
-            this.btn_MagSevYuklemeMalCikisi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevYuklemeMalCikisi.BackgroundImage")));
-            this.btn_MagSevYuklemeMalCikisi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_MagSevYuklemeMalCikisi.ForeColor = System.Drawing.Color.White;
-            this.btn_MagSevYuklemeMalCikisi.Location = new System.Drawing.Point(3, 101);
-            this.btn_MagSevYuklemeMalCikisi.Name = "btn_MagSevYuklemeMalCikisi";
-            this.btn_MagSevYuklemeMalCikisi.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_MagSevYuklemeMalCikisi.PressedImage")));
-            this.btn_MagSevYuklemeMalCikisi.Size = new System.Drawing.Size(154, 47);
-            this.btn_MagSevYuklemeMalCikisi.TabIndex = 31;
-            this.btn_MagSevYuklemeMalCikisi.Text = "    YÜKLEME";
-            this.btn_MagSevYuklemeMalCikisi.Click += new System.EventHandler(this.btn_MagSevYuklemeMalCikisi_Click);
-            // 
-            // btn_MalCikisi
-            // 
-            this.btn_MalCikisi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
-            this.btn_MalCikisi.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_MalCikisi.BackgroundImage")));
-            this.btn_MalCikisi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.btn_MalCikisi.ForeColor = System.Drawing.Color.White;
-            this.btn_MalCikisi.Location = new System.Drawing.Point(161, 101);
-            this.btn_MalCikisi.Name = "btn_MalCikisi";
-            this.btn_MalCikisi.PressedImage = ((System.Drawing.Image)(resources.GetObject("btn_MalCikisi.PressedImage")));
-            this.btn_MalCikisi.Size = new System.Drawing.Size(154, 47);
-            this.btn_MalCikisi.TabIndex = 32;
-            this.btn_MalCikisi.Text = "    MAL ÇIKIŞI";
-            this.btn_MalCikisi.Click += new System.EventHandler(this.btn_MalCikisi_Click);
-            // 
-            // lbl_LoginInfo
-            // 
-            this.lbl_LoginInfo.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lbl_LoginInfo.ForeColor = System.Drawing.Color.Black;
-            this.lbl_LoginInfo.Location = new System.Drawing.Point(98, 257);
-            this.lbl_LoginInfo.Name = "lbl_LoginInfo";
-            this.lbl_LoginInfo.Size = new System.Drawing.Size(217, 16);
-            this.lbl_LoginInfo.Text = "Bağlı Kullanıcı: ";
-            this.lbl_LoginInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // frm_Menu_Mal_Cikis_Sevkiyat_Islemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -140,6 +155,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(318, 295);
             this.ControlBox = false;
+            this.Controls.Add(this.checkListBttn);
             this.Controls.Add(this.lbl_LoginInfo);
             this.Controls.Add(this.btn_MalCikisi);
             this.Controls.Add(this.btn_MagSevYuklemeMalCikisi);
@@ -163,5 +179,6 @@
         private PictureButton btn_MagSevYuklemeMalCikisi;
         private PictureButton btn_MalCikisi;
         private System.Windows.Forms.Label lbl_LoginInfo;
+        private PictureButton checkListBttn;
     }
 }

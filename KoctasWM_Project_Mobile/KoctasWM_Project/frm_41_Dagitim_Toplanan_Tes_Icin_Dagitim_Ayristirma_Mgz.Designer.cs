@@ -123,6 +123,7 @@
             this.txtPaletNo.TabIndex = 3;
             this.txtPaletNo.GotFocus += new System.EventHandler(this.txtPaletNo_GotFocus);
             this.txtPaletNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPaletNo_KeyDown);
+            this.txtPaletNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaletNo_KeyPress);
             // 
             // lbl_DagitimAdresiOlmasiGereken
             // 
@@ -360,7 +361,7 @@
             // 
             this.btn_Kaydet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
             this.btn_Kaydet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Kaydet.BackgroundImage")));
-            this.btn_Kaydet.Enabled = true;
+            this.btn_Kaydet.Enabled = false;
             this.btn_Kaydet.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.btn_Kaydet.ForeColor = System.Drawing.Color.White;
             this.btn_Kaydet.Location = new System.Drawing.Point(165, 209);

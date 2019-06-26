@@ -31,7 +31,6 @@ namespace KoctasWM_Project.WS_Login {
         public ZKT_WM_WS_LOGIN() {
             this.Url = "http://kterpdev.koctas.com.tr:8000/sap/bc/srt/rfc/sap/zkt_wm_ws_login/500/zkt_wm_" +
                 "ws_login/zkt_wm_ws_login";
-            this.Timeout = 300000;    // Gökhanın isteği üzerine timeout, 5 dk ya çıkartıldı.
         }
         
         /// <remarks/>

@@ -6,13 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali).Name);
-       
         public frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali()
         {
             InitializeComponent();
@@ -105,7 +103,6 @@ namespace KoctasWM_Project
 
         private void txtDagitimAraci_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_txtDagitimAraci_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtDagitimAraci.Text.ToString().Trim() == "")
@@ -219,14 +216,12 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_txtDagitimAraci_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
-            } 
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_txtDagitimAraci_KeyDown end");
+            }
         }
 
         private void txtDagitimAdresi_KeyDown(object sender, KeyEventArgs e)
@@ -255,7 +250,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_btn_Kaydet_Click begin");
             if (txtDagitimAdresi.Text.Trim() == "")
             {
                 return;
@@ -400,13 +394,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_btn_Kaydet_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_btn_Kaydet_Click end");
         }
       
     }

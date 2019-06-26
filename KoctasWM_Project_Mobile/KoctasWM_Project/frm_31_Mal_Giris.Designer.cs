@@ -178,6 +178,7 @@
             this.txtIrsaliyeNo.Name = "txtIrsaliyeNo";
             this.txtIrsaliyeNo.Size = new System.Drawing.Size(88, 21);
             this.txtIrsaliyeNo.TabIndex = 3;
+            this.txtIrsaliyeNo.TextChanged += new System.EventHandler(this.txtIrsaliyeNo_TextChanged);
             this.txtIrsaliyeNo.GotFocus += new System.EventHandler(this.txtIrsaliyeNo_GotFocus);
             // 
             // p4

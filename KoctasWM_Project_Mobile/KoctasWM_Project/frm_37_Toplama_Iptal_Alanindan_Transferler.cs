@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_37_Toplama_Iptal_Alanindan_Transferler : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_37_Toplama_Iptal_Alanindan_Transferler).Name);
         public frm_37_Toplama_Iptal_Alanindan_Transferler()
         {
             InitializeComponent();
@@ -88,7 +87,6 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_37_Toplama_Iptal_Alanindan_Transferler_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -141,7 +139,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_37_Toplama_Iptal_Alanindan_Transferler_txtMalzemeNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
@@ -149,7 +146,6 @@ namespace KoctasWM_Project
                 }
 
             }
-            logger.info("frm_37_Toplama_Iptal_Alanindan_Transferler_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_OnerilenPaletKopyala_Click(object sender, EventArgs e)
@@ -169,7 +165,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_37_Toplama_Iptal_Alanindan_Transferler_btn_Kaydet_Click begin");
 
             try
             {
@@ -239,13 +234,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_37_Toplama_Iptal_Alanindan_Transferler_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_37_Toplama_Iptal_Alanindan_Transferler_btn_Kaydet_Click end");
         }
 
         private void txtMiktar_GotFocus(object sender, EventArgs e)

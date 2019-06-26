@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.Web.Services.Protocols;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_31_Mal_Giris : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_31_Mal_Giris).Name);
         public frm_31_Mal_Giris()
         {
             InitializeComponent();
@@ -133,6 +132,7 @@ namespace KoctasWM_Project
             Utility.setBackBolor(p5, lbl_SiparisNo, 'b');
         }
 
+        // Deneme git extension
 
         private void chk_horoz_Click(object sender, EventArgs e)
         {
@@ -163,7 +163,6 @@ namespace KoctasWM_Project
 
         private void btn_KontrolEt_Click(object sender, EventArgs e)
         {
-            logger.info("frm_31_Mal_Giris_btn_KontrolEt_Click begin");
             if (txtSevkiyatNo.Text.Trim() == "")
             {
                 MessageBox.Show("Sevkiyat No giriniz", "HATA");
@@ -189,11 +188,11 @@ namespace KoctasWM_Project
                 srv.Url = Utility.getWsUrlForWM("zkt_wm_ws_kontrol");
                 resp = srv.ZKtWmWsSevkiyatSiparis(chk);
 
-                // Eger kontrol sonras?nda hi�bir sipari? d�nm�yorsa 
-                // uyar? veriliyor
+                // Eger kontrol sonrasında hiçbir sipariş dönmüyorsa 
+                // uyarı veriliyor
                 if (resp.ItSevkiyat.Length == 0)
                 {
-                    MessageBox.Show("Belirtilen sevkiyat numaras?na ait sipari? listesi bulunamad?", "HATA");
+                    MessageBox.Show("Belirtilen sevkiyat numarasına ait sipariş listesi bulunamadı", "HATA");
                     Cursor.Current = Cursors.Default;
                     return;
                 }
@@ -219,11 +218,11 @@ namespace KoctasWM_Project
                         srv2.Url = Utility.getWsUrlForWM("zkt_wm_ws_kontrol");
                         resp2 = srv2.ZKtWmWsMgCheckSas(sas);
 
-                        // Eger SAS kontrolu sonras?nda siparis kaydi HOROZ'a ait bir 
-                        // kay?t ise, checkbox ?n se�ilmesi isteniyor.
+                        // Eger SAS kontrolu sonrasında siparis kaydi HOROZ'a ait bir 
+                        // kayıt ise, checkbox ın seçilmesi isteniyor.
                         if ((resp2.ExType1 == "1") && (!chk_horoz.Checked))
                         {
-                            MessageBox.Show("Bu sipari? i�in 'Horoz Lojistik' kutusunu i?aretleyiniz.", "HATA");
+                            MessageBox.Show("Bu sipariş için 'Horoz Lojistik' kutusunu işaretleyiniz.", "HATA");
                         }
                         else if (resp2.TeReturn.Length > 0)
                         {
@@ -242,7 +241,7 @@ namespace KoctasWM_Project
                                     sas_fs[lenght].Ebeln = sipNo;
 
 
-                                    //ilgili siparis ve malzeme numaras?na g�re Amenge degeri bulunuyor
+                                    //ilgili siparis ve malzeme numarasına göre Amenge degeri bulunuyor
                                     if (resp.ItDetay.Length > 0)
                                     {
                                         for (int ii = 0; ii < resp.ItDetay.Length; ii++)
@@ -269,14 +268,12 @@ namespace KoctasWM_Project
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_31_Mal_Giris_btn_KontrolEt_Click " + ex.Message);
             }
 
             if (lenght == 0)
             {
-                MessageBox.Show("Girilen sevkiyat numaras?na ait mal kabulu yap?lacak sipari? listesi bulunmamaktad?r.", "B?LG?");
+                MessageBox.Show("Girilen sevkiyat numarasına ait mal kabulu yapılacak sipariş listesi bulunmamaktadır.", "BİLGİ");
             }
-            logger.info("frm_31_Mal_Giris_btn_KontrolEt_Click end");
         }
 
         private void txtSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -289,7 +286,6 @@ namespace KoctasWM_Project
 
         private void btn_Ekle_Click(object sender, EventArgs e)
         {
-            logger.info("frm_31_Mal_Giris_btn_Ekle_Click begin");
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -310,11 +306,11 @@ namespace KoctasWM_Project
                 resp = srv.ZKtWmWsMgCheckSas(sas);
 
 
-                // Eger SAS kontrolu sonras?nda siparis kaydi HOROZ'a ait bir 
-                // kay?t ise, checkbox ?n se�ilmesi isteniyor.
+                // Eger SAS kontrolu sonrasında siparis kaydi HOROZ'a ait bir 
+                // kayıt ise, checkbox ın seçilmesi isteniyor.
                 if ((resp.ExType1 == "1") && (!chk_horoz.Checked))
                 {
-                    MessageBox.Show("Bu sipari? i�in 'Horoz Lojistik' kutusunu i?aretleyiniz.", "HATA");
+                    MessageBox.Show("Bu sipariş için 'Horoz Lojistik' kutusunu işaretleyiniz.", "HATA");
                 }
                 else if (resp.TeReturn.Length > 0)
                 {
@@ -351,15 +347,19 @@ namespace KoctasWM_Project
             {
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_31_Mal_Giris_btn_Ekle_Click " + ex.Message);
             }
-            logger.info("frm_31_Mal_Giris_btn_Ekle_Click end");
         }
 
         private void dtp_belge_ValueChanged(object sender, EventArgs e)
         {
             this.Activate();
         }
+
+        private void txtIrsaliyeNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

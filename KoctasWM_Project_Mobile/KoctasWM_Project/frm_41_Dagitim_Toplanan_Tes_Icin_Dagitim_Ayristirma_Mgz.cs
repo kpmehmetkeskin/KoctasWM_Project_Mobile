@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz).Name);
         public frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz()
         {
             InitializeComponent();
@@ -24,7 +23,7 @@ namespace KoctasWM_Project
 
         DataTable _yukle;
 
-        private Boolean isReadMaterial = false;
+
         
 
         private void frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_Load(object sender, EventArgs e)
@@ -126,24 +125,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-
-            if (txtTeslimatMiktari.Text.Equals(txtKalanMiktar.Text))
-            {
-                MessageBox.Show("Önce malzeme okutunuz..","Hata!");
-                return;
-            }
-
-            if (!isReadMaterial)
-            {
-                MessageBox.Show("Önce malzeme okutunuz..", "Hata!");
-                return;
-            }
-            else
-            {
-                isReadMaterial = false;
-            }
-
-            logger.info("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click begin");
+            
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -214,13 +196,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_41_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Mgz_btn_Kaydet_Click end");
         }
 
         private void btn_Geri_Click(object sender, EventArgs e)
@@ -232,7 +212,6 @@ namespace KoctasWM_Project
         {
             try
             {
-                isReadMaterial = true;
                 miktar = Convert.ToDecimal(txtDagitimMiktari.Text.ToString().Trim());
             }
             catch
@@ -247,6 +226,11 @@ namespace KoctasWM_Project
             if (gecerliPaletNo == "")
             {
                 MessageBox.Show("Geçerli bir palet no okutunuz.", "HATA");
+                return;
+            }
+            else if (gecerliPaletNo.Length != 10)
+            {
+                MessageBox.Show("Palet numarası 10 karakter uzunluğunda olmadır.", "HATA");
                 return;
             }
 
@@ -350,6 +334,11 @@ namespace KoctasWM_Project
             
             Utility.selectText(txtDagitimMiktari);
 
+        }
+
+        private void txtPaletNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar);
         }
 
 

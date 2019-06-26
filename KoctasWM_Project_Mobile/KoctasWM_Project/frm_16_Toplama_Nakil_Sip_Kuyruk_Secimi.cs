@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi).Name);
         public frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi()
         {
             InitializeComponent();
@@ -22,7 +21,6 @@ namespace KoctasWM_Project
 
         private void frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_Load(object sender, EventArgs e)
         {
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -67,13 +65,12 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_Load "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_Load end");
+
 
         }
 
@@ -84,7 +81,6 @@ namespace KoctasWM_Project
 
         private void btn_KuyrukDegistir_Click(object sender, EventArgs e)
         {
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_KuyrukDegistir_Click begin");
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -128,18 +124,16 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_KuyrukDegistir_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_KuyrukDegistir_Click end");
         }
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_Kaydet_Click begin");
+
             string kuyrukNo = "";
 
             bool devamEt = false;
@@ -219,7 +213,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_Kaydet_Click "+ex.Message);
                 }
                 finally
                 {
@@ -234,7 +227,6 @@ namespace KoctasWM_Project
             {
                 this.Close();
             }
-            logger.info("frm_16_Toplama_Nakil_Sip_Kuyruk_Secimi_btn_Kaydet_Click end");
             
         }
 

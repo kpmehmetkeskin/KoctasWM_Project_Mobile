@@ -147,7 +147,7 @@
             this.Controls.Add(this.btn_Geri);
             this.Controls.Add(this.btn_KuyrukSecimi);
             this.Name = "frm_Menu_Mal_Cikis_Toplama_Islemleri";
-            this.Text = "k";
+            this.Text = "Toplama İşlemleri";
             this.Load += new System.EventHandler(this.frm_Menu_Mal_Cikis_Toplama_Islemleri_Load);
             this.ResumeLayout(false);
 

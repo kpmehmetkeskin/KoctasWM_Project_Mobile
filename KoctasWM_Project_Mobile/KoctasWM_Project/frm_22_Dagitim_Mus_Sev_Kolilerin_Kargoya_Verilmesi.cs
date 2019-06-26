@@ -6,13 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi).Name);
-
         public frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi()
         {
             InitializeComponent();
@@ -23,7 +21,6 @@ namespace KoctasWM_Project
 
         private void kargoFirmasiCek()
         {
-            logger.info("frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi_kargoFirmasiCek begin");
             //Koli Tipleri Çekiliyor
             WS_Yardim.ZKT_WM_WS_YARDIMService srv = new KoctasWM_Project.WS_Yardim.ZKT_WM_WS_YARDIMService();
             WS_Yardim.ZKtWmWsKargoFirmalari chk = new KoctasWM_Project.WS_Yardim.ZKtWmWsKargoFirmalari();
@@ -60,7 +57,6 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(resp.EsResponse[0].Message.ToString(), "HATA");
             }
-            logger.info("frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi_kargoFirmasiCek end");
         }
 
         private void kargoFirmasiDoldur()
@@ -154,7 +150,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi_btn_Kaydet_Click begin");
             if (_kargoFirmaKodu == "")
             {
                 MessageBox.Show("Kargo firması seçiniz", "HATA");
@@ -170,15 +165,15 @@ namespace KoctasWM_Project
             try
             {
                 WS_Islem.ZKT_WM_WS_ISLEMService srv = new KoctasWM_Project.WS_Islem.ZKT_WM_WS_ISLEMService();
-                WS_Islem.ZKtWmWsKargoyaTeslim2 chk = new KoctasWM_Project.WS_Islem.ZKtWmWsKargoyaTeslim2();
-                WS_Islem.ZKtWmWsKargoyaTeslim2Response resp = new KoctasWM_Project.WS_Islem.ZKtWmWsKargoyaTeslim2Response();
+                WS_Islem.ZKtWmWsKargoyaTeslim chk = new KoctasWM_Project.WS_Islem.ZKtWmWsKargoyaTeslim();
+                WS_Islem.ZKtWmWsKargoyaTeslimResponse resp = new KoctasWM_Project.WS_Islem.ZKtWmWsKargoyaTeslimResponse();
 
                 chk.IvKargoFirmasi = _kargoFirmaKodu.ToString();
                 chk.IvKoliNo = txtKargoKoliNo.Text.Trim().ToString();
 
                 srv.Credentials = GlobalData.globalCr;
                 srv.Url = Utility.getWsUrlForWM("zkt_wm_ws_islem");
-                resp = srv.ZKtWmWsKargoyaTeslim2(chk);
+                resp = srv.ZKtWmWsKargoyaTeslim(chk);
 
                 if (resp.EsResponse.Length > 0)
                 {
@@ -193,7 +188,7 @@ namespace KoctasWM_Project
                     }
                     else if ((GlobalData.rMsg[0].Msgty.ToString().ToUpper() == "S") || (GlobalData.rMsg[0].Msgty.ToString().ToUpper() == "W") || (GlobalData.rMsg[0].Msgty.ToString().ToUpper() == "I"))
                     {
-                        /*
+
                         if (resp.EtKalanKoli.Length > 0)
                         {
                             MessageBox.Show(GlobalData.rMsg[0].Message.ToString() + ": Sevkiyata " + resp.EtKalanKoli[0].KoliNo.ToString() + " koli numarası ile devam edebilirsiniz", "BİLGİ");
@@ -201,7 +196,7 @@ namespace KoctasWM_Project
                         else
                         {
                             MessageBox.Show(GlobalData.rMsg[0].Message.ToString() + "Bu kargo firmasına ait tüm koliler teslim edildi", "BİLGİ");
-                        }*/
+                        }
 
                         
                         
@@ -224,13 +219,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_22_Dagitim_Mus_Sev_Kolilerin_Kargoya_Verilmesi_btn_Kaydet_Click end");
         }
 
         private void txtKargoKoliNo_KeyDown(object sender, KeyEventArgs e)

@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis).Name);
         public frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis()
         {
             InitializeComponent();
@@ -39,7 +38,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_btn_Kaydet_Click begin");
             try
             {
                 //Kontrollere göre işlem yapılıyor
@@ -145,8 +143,8 @@ namespace KoctasWM_Project
                                     if (devam)
                                     {
                                         //Fatura teyit ekranı
-                                        frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D frm = new frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D();
-                                        //frm._faturaNo = _faturaNo;
+                                        frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D frm = new frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D();
+                                        frm._faturaNo = _faturaNo;
                                         frm._belgeNo = teslimat.Vbeln.ToString();
                                         frm._koliNo = txtKargoKoliNo.Text.ToString().Trim();
                                         if (frm.ShowDialog() == DialogResult.OK)
@@ -188,7 +186,7 @@ namespace KoctasWM_Project
                             //Fatura teyit ekranı
                             //frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D frm = new frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D();
                             frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D frm = new frm_20_v2_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D();
-                            //frm._faturaNo = _faturaNo;
+                            frm._faturaNo = _faturaNo;
                             frm._koliNo = txtKargoKoliNo.Text.ToString().Trim();
                             frm._belgeNo = teslimat.Vbeln.ToString();
                             if (frm.ShowDialog() == DialogResult.OK)
@@ -207,9 +205,7 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_btn_Kaydet_Click " + ex.Message);
             }
-            logger.info("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_btn_Kaydet_Click end");
         }
 
         private void txtKargoKoliNo_GotFocus(object sender, EventArgs e)
@@ -220,7 +216,6 @@ namespace KoctasWM_Project
 
         private void txtKargoKoliNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_txtKargoKoliNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtKargoKoliNo.Text.ToString().Trim() == "")
@@ -296,15 +291,12 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_txtKargoKoliNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-
-            logger.info("frm_38_Mal_Cikisi_Faturalama_ve_ATF_Cikis_txtKargoKoliNo_KeyDown end");
             
         }
 

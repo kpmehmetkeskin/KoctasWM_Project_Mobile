@@ -6,13 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_02_SA_Trans_Girisi_Adresleme : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_02_SA_Trans_Girisi_Adresleme).Name);
-
         public frm_02_SA_Trans_Girisi_Adresleme()
         {
             InitializeComponent();
@@ -40,7 +38,6 @@ namespace KoctasWM_Project
 
         private void frm_02_SA_Trans_Girisi_Adresleme_Load(object sender, EventArgs e)
         {
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -50,7 +47,6 @@ namespace KoctasWM_Project
                 txtPaletNo.Text = _paletNo;
             }
             Utility.selectText(txtPaletNo);
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_Load end");
         }
 
 
@@ -74,8 +70,6 @@ namespace KoctasWM_Project
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_txtMalzemeNo_KeyDown begin");
-
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletNo.Text.Trim() == "")
@@ -127,7 +121,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("in frm_02_SA_Trans_Girisi_Adresleme_txtMalzemeNo_KeyDown "+ ex.Message);
                 }
                 finally
                 {
@@ -136,7 +129,6 @@ namespace KoctasWM_Project
 
 
             }
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_txtMalzemeNo_KeyDown end");
         }
 
         private void txtHedefAdres_KeyDown(object sender, KeyEventArgs e)
@@ -155,8 +147,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_btn_Kaydet_Click begin");
-
             if (txtHedefAdres.Text.Trim() == "")
             {
                 return;
@@ -214,16 +204,12 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_02_SA_Trans_Girisi_Adresleme_btn_Kaydet_Click "+ ex.Message);
-
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_02_SA_Trans_Girisi_Adresleme_btn_Kaydet_Click end");
         }
-            
 
 
     }

@@ -31,7 +31,6 @@ namespace KoctasWM_Project.WS_Islem {
         public ZKT_WM_WS_ISLEMService() {
             this.Url = "http://kterpdev.koctas.com.tr:8000/sap/bc/srt/rfc/sap/zkt_wm_ws_islem/500/zkt_wm_" +
                 "ws_islemservice/zkt_wm_ws_islem";
-            this.Timeout = 300000;    // Gökhanın isteği üzerine timeout, 5 dk ya çıkartıldı.
         }
         
         /// <remarks/>

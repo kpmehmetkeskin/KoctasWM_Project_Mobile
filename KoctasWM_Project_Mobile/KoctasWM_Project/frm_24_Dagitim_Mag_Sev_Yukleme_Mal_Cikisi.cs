@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi).Name);
         public frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi()
         {
             InitializeComponent();
@@ -84,7 +83,6 @@ namespace KoctasWM_Project
 
         private void frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_Load(object sender, EventArgs e)
         {
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -123,13 +121,12 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_Load " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_Load end");
+
         }
 
  
@@ -145,7 +142,6 @@ namespace KoctasWM_Project
 
         private void btn_Ekle_Click(object sender, EventArgs e)
         {
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Ekle_Click begin");
             if (txtPaletKargoNo.Text.Trim() == "")
             {
                 return;
@@ -246,13 +242,12 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Ekle_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Ekle_Click end");
+
 
         }
 
@@ -266,7 +261,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Kaydet_Click begin");
             //Listedeki tüm koliler toplanmış mı?
             if (koliToplamaKontrol())
             {
@@ -324,7 +318,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString(), "HATA");
-                    logger.error("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Kaydet_Click " + ex.Message);
                 }
                 finally
                 {
@@ -332,12 +325,10 @@ namespace KoctasWM_Project
                 }
             }
 
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_btn_Kaydet_Click end");
         }
 
         private void grd_List_DoubleClick(object sender, EventArgs e)
         {
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_grd_List_DoubleClick begin");
             try
             {
                 //Seçilen satıra ait koliNo çekiliyor
@@ -386,9 +377,7 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_grd_List_DoubleClick " + ex.Message);
             }
-            logger.info("frm_24_Dagitim_Mag_Sev_Yukleme_Mal_Cikisi_grd_List_DoubleClick end");
         }
     }
 }

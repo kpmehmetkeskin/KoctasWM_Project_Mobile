@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris).Name);
         public frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris()
         {
             InitializeComponent();
@@ -19,12 +18,11 @@ namespace KoctasWM_Project
 
         private void frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_Load(object sender, EventArgs e)
         {
-            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
+
             txtNakilSiparisNo.Focus();
-            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_Load end");
         }
 
         private void btn_Geri_Click(object sender, EventArgs e)
@@ -34,7 +32,7 @@ namespace KoctasWM_Project
 
         private void btn_DetayGetir_Click(object sender, EventArgs e)
         {
-            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_btn_DetayGetir_Click begin");
+
             if (txtNakilSiparisNo.Text.Trim() == "")
             {
                 return;
@@ -79,13 +77,12 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtNakilSiparisNo);
-                logger.error("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_btn_DetayGetir_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_18_Toplama_Manual_Nakil_Sip_Onaylama_Giris_btn_DetayGetir_Click end");
+            
             
             
         }

@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_32_v2_Musteri_Iade_Girisi : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_32_v2_Musteri_Iade_Girisi).Name);
         public frm_32_v2_Musteri_Iade_Girisi()
         {
             InitializeComponent();
@@ -151,7 +150,6 @@ namespace KoctasWM_Project
 
         private void txtSiparisNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_32_v2_Musteri_Iade_Girisi_txtSiparisNo_KeyDown begin");
 
             if (e.KeyCode == Keys.Enter)
             {
@@ -231,7 +229,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_32_v2_Musteri_Iade_Girisi_txtSiparisNo_KeyDown " + ex.Message);
                 
                 }
                 finally
@@ -240,7 +237,6 @@ namespace KoctasWM_Project
                 }
 
             }
-            logger.info("frm_32_v2_Musteri_Iade_Girisi_txtSiparisNo_KeyDown end");
         }
 
 
@@ -408,7 +404,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_32_v2_Musteri_Iade_Girisi_btn_Kaydet_Click begin");
 
             try
             {
@@ -556,13 +551,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_32_v2_Musteri_Iade_Girisi_btn_Kaydet_Click " + ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_32_v2_Musteri_Iade_Girisi_btn_Kaydet_Click end");
         }
 
         

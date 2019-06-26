@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis).Name);
         public frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis()
         {
             InitializeComponent();
@@ -46,7 +45,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_btn_Kaydet_Click begin");
             try
             {
                 miktar = Convert.ToDecimal(txtMiktar.Text.Trim());
@@ -118,18 +116,15 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_btn_Kaydet_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_btn_Kaydet_Click end");
         }
 
         private void frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_Load(object sender, EventArgs e)
         {
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
@@ -141,7 +136,6 @@ namespace KoctasWM_Project
             {
                 this.Close();
             }
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_Load end");
         }
 
         private void txtPaletNo_GotFocus(object sender, EventArgs e)
@@ -152,7 +146,6 @@ namespace KoctasWM_Project
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_txtPaletNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletNo.Text.Trim() == "")
@@ -206,7 +199,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_txtPaletNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
@@ -215,7 +207,6 @@ namespace KoctasWM_Project
 
 
             }
-            logger.info("frm_15_Genel_Cikis_Isl_Sigorta_Ara_Hesabina_Cikis_txtPaletNo_KeyDown end");
         }
 
         private void txtMiktar_GotFocus(object sender, EventArgs e)

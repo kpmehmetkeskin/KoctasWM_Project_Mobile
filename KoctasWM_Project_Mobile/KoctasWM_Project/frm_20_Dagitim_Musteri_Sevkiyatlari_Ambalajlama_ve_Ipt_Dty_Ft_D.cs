@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D).Name);
         public frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D()
         {
             InitializeComponent();
@@ -42,7 +41,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D_btn_Kaydet_Click begin");
+            
             if (txtFaturaNo.Text.ToString().Trim() == txtOkutulanFaturaNo.Text.ToString().Trim())
             {
 
@@ -111,7 +110,6 @@ namespace KoctasWM_Project
                 } catch (Exception ex) {
                     MessageBox.Show(ex.Message, "HATA");
                     Utility.selectText(txtFaturaNo);
-                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D_btn_Kaydet_Click "+ex.Message);
                 }
 
 
@@ -122,7 +120,6 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show("Fatura eşleşmesi doğru değil. Kontrol ediniz.", "HATA");
             }
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Ipt_Dty_Ft_D_btn_Kaydet_Click end");
         }
 
         private void txtOkutulanFaturaNo_KeyDown(object sender, KeyEventArgs e)

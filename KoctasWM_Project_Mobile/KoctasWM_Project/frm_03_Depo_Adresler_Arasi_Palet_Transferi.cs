@@ -6,13 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_03_Depo_Adresler_Arasi_Palet_Transferi : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_03_Depo_Adresler_Arasi_Palet_Transferi).Name);
-
         public frm_03_Depo_Adresler_Arasi_Palet_Transferi()
         {
             InitializeComponent();
@@ -54,18 +52,15 @@ namespace KoctasWM_Project
 
         private void frm_03_Depo_Adresler_Arasi_Palet_Transferi_Load(object sender, EventArgs e)
         {
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
 
             txtPaletNo.Focus();
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_Load end");
         }
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletNo.Text.ToString().Trim() == "")
@@ -111,15 +106,12 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_03_Depo_Adresler_Arasi_Palet_Transferi_txtMalzemeNo_KeyDown "+ex.Message );
-
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_txtMalzemeNo_KeyDown end");
         }
 
         private void txtHedefAdres_KeyDown(object sender, KeyEventArgs e)
@@ -132,7 +124,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_btn_Kaydet_Click begin");
             if (txtHedefAdres.Text.ToString().Trim() == "")
             {
                 return;
@@ -189,14 +180,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_03_Depo_Adresler_Arasi_Palet_Transferi_btn_Kaydet_Click " + ex.Message);
-
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_03_Depo_Adresler_Arasi_Palet_Transferi_btn_Kaydet_Click end");
         }
     }
 }

@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_08_Depo_Fark_Giris_Cikislari : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_08_Depo_Fark_Giris_Cikislari).Name);
         public frm_08_Depo_Fark_Giris_Cikislari()
         {
             InitializeComponent();
@@ -59,17 +58,15 @@ namespace KoctasWM_Project
 
         private void frm_08_Depo_Fark_Giris_Cikislari_Load(object sender, EventArgs e)
         {
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
             Utility.loginInfo(lbl_LoginInfo);
+
             txtPaletNo.Focus();
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_Load end");
         }
 
         private void txtPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_txtPaletNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtPaletNo.Text.ToString().Trim() == "")
@@ -146,14 +143,13 @@ namespace KoctasWM_Project
                 {
                     MessageBox.Show(ex.Message, "HATA");
                     Utility.selectText(txtPaletNo);
-                    logger.error("frm_08_Depo_Fark_Giris_Cikislari_txtPaletNo_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_txtPaletNo_KeyDown end");
+
         }
 
         private void txtMiktar_KeyDown(object sender, KeyEventArgs e)
@@ -171,7 +167,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_btn_Kaydet_Click begin");
             try
             {
                 miktar = Convert.ToDecimal(txtMiktar.Text.Trim());
@@ -257,18 +252,15 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_08_Depo_Fark_Giris_Cikislari_btn_Kaydet_Click "+ ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_btn_Kaydet_Click end");
         }
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -312,14 +304,12 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_08_Depo_Fark_Giris_Cikislari_txtMalzemeNo_KeyDown "+ ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-            logger.info("frm_08_Depo_Fark_Giris_Cikislari_txtMalzemeNo_KeyDown end");
         }
     }
 }

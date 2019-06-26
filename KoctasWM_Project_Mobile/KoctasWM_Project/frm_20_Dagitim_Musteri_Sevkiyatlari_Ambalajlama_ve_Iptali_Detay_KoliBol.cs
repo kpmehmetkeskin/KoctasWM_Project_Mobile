@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol).Name);
         string _koliTipi;
         string _koliTipiDesi;
         public DataTable _koliTipiTablo = new DataTable();
@@ -44,7 +43,6 @@ namespace KoctasWM_Project
 
         private void koliTipiCek()
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_koliTipiCek begin");
             //Koli Tipleri Çekiliyor
             WS_Yardim.ZKT_WM_WS_YARDIMService srv = new KoctasWM_Project.WS_Yardim.ZKT_WM_WS_YARDIMService();
             WS_Yardim.ZKtWmWsKoliTipleri chk = new KoctasWM_Project.WS_Yardim.ZKtWmWsKoliTipleri();
@@ -78,8 +76,6 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(resp.EsResponse[0].Message.ToString(), "HATA");
             }
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_koliTipiCek end");
-        
         }
 
         private void koliTipiDoldur()
@@ -217,7 +213,7 @@ namespace KoctasWM_Project
 
         private void btn_Bol_Click(object sender, EventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Bol_Click begin");
+
             decimal bolmeMiktari = 0;
             try
             {
@@ -299,14 +295,12 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Bol_Click "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Bol_Click end");
         }
 
         private void grd_List_DoubleClick(object sender, EventArgs e)
@@ -368,7 +362,6 @@ namespace KoctasWM_Project
 
         private void btn_Devam_Click(object sender, EventArgs e)
         {
-            logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Devam_Click begin");
             bool devam = true;
             if (txtKargoKoliNo.Text.Trim() != "")
             {
@@ -434,7 +427,6 @@ namespace KoctasWM_Project
                     {
                         MessageBox.Show(ex.Message, "HATA");
                         devam = false;
-                        logger.error("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Devam_Click "+ex.Message);
                     }
                     finally
                     {
@@ -444,7 +436,7 @@ namespace KoctasWM_Project
 
                     
                 }
-                logger.info("frm_20_Dagitim_Musteri_Sevkiyatlari_Ambalajlama_ve_Iptali_Detay_KoliBol_btn_Devam_Click end");
+
             }
 
             //Buraya geldiyse diğer ekran açılıyor

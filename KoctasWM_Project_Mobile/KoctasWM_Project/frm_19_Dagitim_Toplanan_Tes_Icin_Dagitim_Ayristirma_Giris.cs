@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris).Name);
         public frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris()
         {
             InitializeComponent();
@@ -38,7 +37,7 @@ namespace KoctasWM_Project
 
         private void btn_DetayGetir_Click(object sender, EventArgs e)
         {
-            logger.info("frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris_btn_DetayGetir_Click begin");
+
             if (txtMalzemeNo.Text.Trim() == "")
             {
                 return;
@@ -91,13 +90,12 @@ namespace KoctasWM_Project
             {
                 MessageBox.Show(ex.Message, "HATA");
                 Utility.selectText(txtMalzemeNo);
-                logger.error("frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris_btn_DetayGetir_Click "+ex.Message);
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_19_Dagitim_Toplanan_Tes_Icin_Dagitim_Ayristirma_Giris_btn_DetayGetir_Click end");
+            
         }
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)

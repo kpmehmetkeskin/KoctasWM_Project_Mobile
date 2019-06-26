@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_23_Dagitim_Mag_Sev_Paletleme_Iptali : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_23_Dagitim_Mag_Sev_Paletleme_Iptali).Name);
         public frm_23_Dagitim_Mag_Sev_Paletleme_Iptali()
         {
             InitializeComponent();
@@ -360,7 +359,6 @@ namespace KoctasWM_Project
 
         private void txtSevkiyatRampasi_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtSevkiyatRampasi_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtSevkiyatRampasi.Text.ToString().Trim() == "")
@@ -438,19 +436,16 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtSevkiyatRampasi_KeyDown "+ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
             }
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtSevkiyatRampasi_KeyDown end");
         }
 
         private void txtKargoPaletNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtKargoPaletNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtKargoPaletNo.Text.Trim().ToString() == "")
@@ -493,7 +488,6 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtKargoPaletNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
@@ -501,7 +495,7 @@ namespace KoctasWM_Project
                 }
 
             }
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_txtKargoPaletNo_KeyDown end");
+            
             
         }
 
@@ -567,7 +561,6 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_btn_Kaydet_Click begin");
             if (MessageBox.Show("Paleti tamamlamak istediğinizden emin misiniz?", "BİLGİ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
 
@@ -645,7 +638,6 @@ namespace KoctasWM_Project
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message.ToString(), "HATA");
-                        logger.error("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_btn_Kaydet_Click " + ex.Message);
                         return;
                     }
                     finally
@@ -656,7 +648,6 @@ namespace KoctasWM_Project
 
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_23_Dagitim_Mag_Sev_Paletleme_Iptali_btn_Kaydet_Click end");
         }
 
         private void txtPaletlenecekMiktar_KeyDown(object sender, KeyEventArgs e)

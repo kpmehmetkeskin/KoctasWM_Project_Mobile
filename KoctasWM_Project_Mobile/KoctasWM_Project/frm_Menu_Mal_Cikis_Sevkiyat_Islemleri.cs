@@ -59,5 +59,11 @@ namespace KoctasWM_Project
             frm.ShowDialog();
         }
 
+        private void checkListBttn_Click(object sender, EventArgs e)
+        {
+            KoliNoPopUp frm = new KoliNoPopUp();
+            frm.ShowDialog();
+        }
+
     }
 }

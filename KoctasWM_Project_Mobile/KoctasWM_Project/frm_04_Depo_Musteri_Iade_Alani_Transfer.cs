@@ -6,12 +6,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Win32;
+
 namespace KoctasWM_Project
 {
     public partial class frm_04_Depo_Musteri_Iade_Alani_Transfer : Form
     {
-        private VMLogger logger = new VMLogger(typeof(frm_04_Depo_Musteri_Iade_Alani_Transfer).Name);
         public frm_04_Depo_Musteri_Iade_Alani_Transfer()
         {
             InitializeComponent();
@@ -41,12 +40,12 @@ namespace KoctasWM_Project
 
         private void frm_04_Depo_Musteri_Iade_Alani_Transfer_Load(object sender, EventArgs e)
         {
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_Load begin");
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = false;
-            Utility.loginInfo(lbl_LoginInfo); 
+            Utility.loginInfo(lbl_LoginInfo);
+
+
             Utility.selectText(txtMalzemeNo);
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_Load end");
         }
 
         private void txtMalzemeNo_GotFocus(object sender, EventArgs e)
@@ -92,7 +91,6 @@ namespace KoctasWM_Project
 
         private void txtMalzemeNo_KeyDown(object sender, KeyEventArgs e)
         {
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_txtMalzemeNo_KeyDown begin");
             if (e.KeyCode == Keys.Enter)
             {
                 if (txtMalzemeNo.Text.ToString().Trim() == "")
@@ -145,16 +143,13 @@ namespace KoctasWM_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "HATA");
-                    logger.error("frm_04_Depo_Musteri_Iade_Alani_Transfer_txtMalzemeNo_KeyDown " + ex.Message);
                 }
                 finally
                 {
                     Cursor.Current = Cursors.Default;
                 }
-               
 
             }
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_txtMalzemeNo_KeyDown end");
         }
 
         private void btn_OnerilenPaletKopyala_Click(object sender, EventArgs e)
@@ -174,7 +169,7 @@ namespace KoctasWM_Project
 
         private void btn_Kaydet_Click(object sender, EventArgs e)
         {
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_btn_Kaydet_Click begin");
+
             if (txtHedefPalet.Text.ToString().Trim() == "")
             {
                 return;
@@ -232,14 +227,11 @@ namespace KoctasWM_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "HATA");
-                logger.error("frm_04_Depo_Musteri_Iade_Alani_Transfer_btn_Kaydet_Click " + ex.Message);
-
             }
             finally
             {
                 Cursor.Current = Cursors.Default;
             }
-            logger.info("frm_04_Depo_Musteri_Iade_Alani_Transfer_btn_Kaydet_Click end");
         }
 
         private void txtMiktar_GotFocus(object sender, EventArgs e)
