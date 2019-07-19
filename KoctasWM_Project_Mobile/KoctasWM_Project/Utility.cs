@@ -53,6 +53,7 @@ namespace KoctasWM_Project
                 case "zkt_wm_ws_kontrol": { servicenameService = "zkt_wm_ws_kontrolservice"; break; }
                 case "zkt_wm_ws_islem": { servicenameService = "zkt_wm_ws_islemservice"; break; }
                 case "zkt_wm_ws_login": { servicenameService = "zkt_wm_ws_login"; break; }
+                case "z_kt_wm_koli_detay": { servicenameService = "z_kt_wm_koli_detay"; break; }
                 default: break;
 
             }

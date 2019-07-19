@@ -56,7 +56,7 @@
             this.checkListYazdir.Size = new System.Drawing.Size(116, 20);
             this.checkListYazdir.TabIndex = 2;
             this.checkListYazdir.Text = "yazdir";
-            this.checkListYazdir.Click += new System.EventHandler(this.checkListYazdir_Click);
+            this.checkListYazdir.Click += new System.EventHandler(this.checkListYazdir_Click_1);
             // 
             // KoliNoPopUp
             // 
