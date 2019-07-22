@@ -53,14 +53,14 @@
             // 
             this.checkListBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(117)))), ((int)(((byte)(30)))));
             this.checkListBttn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("checkListBttn.BackgroundImage")));
-            this.checkListBttn.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.checkListBttn.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular);
             this.checkListBttn.ForeColor = System.Drawing.Color.White;
             this.checkListBttn.Location = new System.Drawing.Point(3, 151);
             this.checkListBttn.Name = "checkListBttn";
             this.checkListBttn.PressedImage = ((System.Drawing.Image)(resources.GetObject("checkListBttn.PressedImage")));
             this.checkListBttn.Size = new System.Drawing.Size(154, 47);
             this.checkListBttn.TabIndex = 33;
-            this.checkListBttn.Text = " KONTROL LİSTESİ YAZDIR";
+            this.checkListBttn.Text = " KONTROL LİSTESİ YAZ..";
             this.checkListBttn.Click += new System.EventHandler(this.checkListBttn_Click);
             // 
             // btn_MalCikisi
